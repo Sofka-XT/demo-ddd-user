@@ -3,16 +3,14 @@ package co.com.sofka.user.usecases;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.user.command.CreateUserCommand;
-import co.com.sofka.user.events.CreatedUser;
+import co.com.sofka.user.events.CreatedStudent;
 import co.com.sofka.user.values.Email;
 import co.com.sofka.user.values.Password;
 import co.com.sofka.user.values.Username;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class CreateUserUseCaseTest {
+class CreateStudentUseCaseTest {
 
     @Test
     void createUser(){
@@ -21,7 +19,7 @@ class CreateUserUseCaseTest {
         Password password = new Password("xxxxx");
         Email email = Email.of("alzategomez.raul@gmail.com");
         var command = new CreateUserCommand(username, password, email );
-        var usecase = new CreateUserUseCase();
+        var usecase = new CreateStudentUseCase();
 
         //act
         var events = UseCaseHandler.getInstance()
@@ -30,7 +28,7 @@ class CreateUserUseCaseTest {
                 .getDomainEvents();
 
         //assert
-        var event = (CreatedUser)events.get(0);
+        var event = (CreatedStudent)events.get(0);
         Assertions.assertEquals("xxxxx", event.getPassword().value());
         Assertions.assertEquals("raulalzate", event.getUsername().value());
         Assertions.assertEquals("alzategomez.raul@gmail.com", event.getEmail().value());

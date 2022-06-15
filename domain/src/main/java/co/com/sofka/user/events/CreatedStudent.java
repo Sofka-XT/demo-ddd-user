@@ -5,12 +5,12 @@ import co.com.sofka.user.values.Email;
 import co.com.sofka.user.values.Password;
 import co.com.sofka.user.values.Username;
 
-public class CreatedUser extends DomainEvent {
+public class CreatedStudent extends DomainEvent {
     private final Username username;
     private final Password password;
     private final Email email;
 
-    public CreatedUser(Username username, Password password, Email email) {
+    public CreatedStudent(Username username, Password password, Email email) {
         super("user.CreatedUser");
         this.username = username;
         this.password = password;

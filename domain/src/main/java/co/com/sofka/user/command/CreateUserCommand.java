@@ -3,7 +3,6 @@ package co.com.sofka.user.command;
 import co.com.sofka.domain.generic.Command;
 import co.com.sofka.user.values.Email;
 import co.com.sofka.user.values.Password;
-import co.com.sofka.user.values.UserId;
 import co.com.sofka.user.values.Username;
 
 public class CreateUserCommand extends Command {
